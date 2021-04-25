@@ -1,3 +1,12 @@
+## Demo [Class component__Redux]
+
+- Case Add (+ value)
+- Case Sub (- value)
+- Case Clear (value to 0)
+
+![alt text](https://github.com/natchanonBenz/Redux_class_component/blob/master/demo/01.PNG?raw=true)
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
