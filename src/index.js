@@ -3,11 +3,46 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import { createStore , combineReducers} from 'redux'
+import { Provider } from 'react-redux'
+
+const valueReducer = (state = { value: '0' }, action) => {
+  switch (action.type) {
+
+    case "setValue":
+      state = {
+        ...state,
+        value: action.payload
+      }
+      break;
+    case "editValue":
+      state = {
+        ...state,
+        value: state.value + action.payload
+      }
+      break;
+    default: {
+      return {
+        ...state
+      }
+    }
+  }
+  return state;
+}
+const store = createStore(combineReducers({valueReducer}))
+store.subscribe(() => {
+  console.log('current value: ', store.getState());
+});
+
+store.dispatch({
+  type: "setValue",
+  payload: 0
+});
 
 ReactDOM.render(
-  <React.StrictMode>
+  <Provider store={store}>
     <App />
-  </React.StrictMode>,
+  </Provider>,
   document.getElementById('root')
 );
 
